@@ -44,6 +44,11 @@ cmake -E copy_directory \
     "$SOURCEDIR/Examples/Algorithms/Digitization/include/ActsExamples/Digitization" \
     "$INSTALLROOT/include/ActsExamples/Digitization"
 
+# Install ACTS example DetectorCommons headers (needed by AlignedTGeoDetectorElement.hpp)
+cmake -E copy_directory \
+    "$SOURCEDIR/Examples/Detectors/Common/include/ActsExamples/DetectorCommons" \
+    "$INSTALLROOT/include/ActsExamples/DetectorCommons"
+
 case $ARCHITECTURE in
     osx*)
         find $INSTALLROOT/lib/ -name "*.dylib" -exec install_name_tool -add_rpath ${INSTALLROOT}/lib {} \;
